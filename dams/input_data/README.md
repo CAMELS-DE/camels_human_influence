@@ -14,5 +14,4 @@ The data is downloaded on the fly when running the docker container.
 
 ## Citation
 
-Speckhann, G.; Kreibich, H.; Merz, B. (2020): Inventory of dams in Germany. V. 1.0. GFZ Data Services.
-http://doi.org/10.5880/GFZ.4.4.2020.005
+Speckhann, G. A., Kreibich, H., and Merz, B.: Inventory of dams in Germany, Earth Syst. Sci. Data, 13, 731–740, https://doi.org/10.5194/essd-13-731-2021, 2021.

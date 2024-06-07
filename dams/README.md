@@ -25,8 +25,6 @@ docker run -v ./input_data:/input_data -v ./output_data:/output_data -v ./script
 
 ## Output variables
 
-All variables represent the area percentage of the various HUEK250 classes of the total catchment area.  
-
 - **dams_names** [-] *(names of all dams located in the catchment)* 
 - **dams_river_names** [-] *(names of the rivers where the dams are located)*
 - **dams_num** [-] *(number of dams located in the catchment)*
