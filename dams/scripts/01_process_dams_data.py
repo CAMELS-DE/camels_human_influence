@@ -120,7 +120,7 @@ def process_dam_data():
     df_dams = df_dams.astype({col: "Int64" for col in ["dams_num", "dams_year_first", "dams_year_last"]})
     df_dams = df_dams.astype({col: "float" for col in ["dams_total_lake_area", "dams_total_lake_volume"]})
         
-    df_dams.to_csv("/output_data/dams_in_germany.csv")
+    df_dams.to_csv("/output_data/dams_in_germany.csv", index_label="camels_id")
 
 
 if __name__ == "__main__":

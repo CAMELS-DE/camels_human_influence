@@ -18,7 +18,7 @@ def download_dams_data():
 
     # Unzip the data
     with zipfile.ZipFile("/input_data/Dams_in_Germany_v.1.0.zip", 'r') as zip_ref:
-        zip_ref.extractall("/input_data")
+        zip_ref.extractall("/input_data/dams/")
 
     # Remove the zip file
     os.remove("/input_data/Dams_in_Germany_v.1.0.zip")

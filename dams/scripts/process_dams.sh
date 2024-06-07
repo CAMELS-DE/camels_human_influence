@@ -22,13 +22,13 @@ echo "[$(date +%T)] Saved extracted dam data for all CAMELS-DE stations with 01_
 
 # Copy the output data to the camelsp output directory
 echo "[$(date +%T)] Copying the extracted and postprocessed data to the camelsp output directory..."
-mkdir -p /camelsp/output_data/raw_catchment_attributes/human_influence/dams/
-cp -r /output_data/* /camelsp/output_data/raw_catchment_attributes/human_influence/dams/
+mkdir -p /camelsp/output_data/raw_catchment_attributes/human_influences/dams/
+cp -r /output_data/* /camelsp/output_data/raw_catchment_attributes/human_influences/dams/
 echo "[$(date +%T)] Copied the extracted and postprocessed data to the camelsp output directory"
 
-# Copy scripts to /camelsp/output_data/scripts/human_influence/dams/
-mkdir -p /camelsp/output_data/scripts/human_influence/dams/
-cp /output_data/scripts/* /camelsp/output_data/scripts/human_influence/dams/
+# Copy scripts to /camelsp/output_data/scripts/human_influences/dams/
+mkdir -p /camelsp/output_data/scripts/human_influences/dams/
+cp /output_data/scripts/* /camelsp/output_data/scripts/human_influences/dams/
 
 # Change permissions of the output data
 chmod -R 777 /camelsp/output_data/
