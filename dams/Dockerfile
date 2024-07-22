@@ -21,6 +21,7 @@ RUN git clone https://github.com/CAMELS-DE/camelsp.git
 RUN pip install -e /camelsp
 
 # Change working directory
+COPY ./scripts /scripts
 WORKDIR /scripts
 
 # Run sh script to process ISRIC
