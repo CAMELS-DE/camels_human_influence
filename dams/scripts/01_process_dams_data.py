@@ -52,10 +52,23 @@ def process_dam_data():
         # set information of dams in catchment in df_dams
         if len(dams_in_catchment) > 0:        
             # dam names
-            df_dams.loc[camels_id, "dams_names"] = ", ".join(dams_in_catchment["Name"])
+            df_dams.loc[camels_id, "dams_names"] = "|".join(dams_in_catchment["Name"])
 
-            # dam rivers
-            df_dams.loc[camels_id, "dams_river_names"] = ", ".join(dams_in_catchment["river"])
+            # dam rivers (unique)
+            rivers = [river for river in dams_in_catchment["river"] if river is not None]
+            # there should be no commas in river names for csv -> only in Zschorlaubach (Filzbach, Seifenb.) and Mehltheuerbach, aus Quelle
+            if "Zschorlaubach (Filzbach, Seifenb.)" in rivers:
+                rivers.remove("Zschorlaubach (Filzbach, Seifenb.)")
+                rivers.extend(["Zschorlaubach"])
+            if "Mehltheuerbach, aus Quelle" in rivers:
+                rivers.remove("Mehltheuerbach, aus Quelle")
+                rivers.extend(["Mehltheuerbach (aus Quelle)"])
+            # split rivers with commas (multiple rivers at one dam)
+            rivers = [river.split(", ") for river in rivers]
+            rivers = [river for sublist in rivers for river in sublist]
+            # unique rivers
+            rivers = list(set(rivers))
+            df_dams.loc[camels_id, "dams_river_names"] = "|".join(rivers)
 
             # number of dams
             df_dams.loc[camels_id, "dams_num"] = int(len(dams_in_catchment))
@@ -103,7 +116,7 @@ def process_dam_data():
                 else:
                     purposes_full_names.append(purposes_mapping[purpose])
                     
-            df_dams.loc[camels_id, "dams_purposes"] = ", ".join(purposes_full_names)
+            df_dams.loc[camels_id, "dams_purposes"] = "|".join(purposes_full_names)
         
         else:
             # set default values if no dams are in the catchment
